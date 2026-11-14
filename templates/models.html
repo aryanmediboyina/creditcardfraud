@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-title">
+  <p class="eyebrow">MACHINE LEARNING</p>
+  <h1>Model comparison</h1>
+  <p>Four algorithms from the supplied notebooks are trained and evaluated.</p>
+</section>
+
+<div class="table-card">
+<table>
+<thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>AUC</th></tr></thead>
+<tbody>
+{% for key, m in metrics.items() %}
+<tr>
+  <td>{{ key.replace("_", " ").title() }}</td>
+  <td>{{ "%.2f"|format(m["accuracy"]*100) }}%</td>
+  <td>{{ "%.2f"|format(m["precision"]*100) }}%</td>
+  <td>{{ "%.2f"|format(m["recall"]*100) }}%</td>
+  <td>{{ "%.2f"|format(m["f1"]*100) }}%</td>
+  <td>{% if m.get("auc") %}{{ "%.3f"|format(m["auc"]) }}{% else %}—{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+<section class="info-grid">
+  <div class="info-card"><h3>Why more than accuracy?</h3><p>Fraud datasets are highly imbalanced. Precision, recall and F1 help show how well the model handles the minority fraud class.</p></div>
+  <div class="info-card"><h3>Best demo model</h3><p>SVM is presented as the main model because the supplied SVM notebook includes accuracy, precision, recall, F1 and AUC evaluation.</p></div>
+</section>
+{% endblock %}

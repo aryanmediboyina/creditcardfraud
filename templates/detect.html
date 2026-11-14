@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-title">
+  <p class="eyebrow">LIVE PREDICTION</p>
+  <h1>Analyze a transaction</h1>
+  <p>Enter the transaction features below. For a demonstration, you can use a row from your dataset.</p>
+</section>
+
+<form id="predictForm" class="form-card">
+  <div class="form-top">
+    <label>Machine Learning Model
+      <select name="model">
+        {% for key, name in models.items() %}
+          <option value="{{ key }}" {% if key == "svm" %}selected{% endif %}>{{ name }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+
+  <div class="input-grid">
+    <label>Time<input name="Time" type="number"  step="any" value="0" required></label>
+    {% for i in range(1,29) %}
+      <label>V{{ i }}<input name="V{{ i }}" type="number"  step="any" value="0" required></label>
+    {% endfor %}
+    <label>Amount<input name="Amount" type="number" step="any" value="0" min="0" required></label>
+  </div>
+
+  <button class="btn" type="submit">Analyze Transaction</button>
+</form>
+
+<div id="result" class="result hidden"></div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}

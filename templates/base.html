@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudDetect AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">🛡 FraudDetect <span>AI</span></div>
+  <div class="navlinks">
+    <a href="/">Dashboard</a>
+    <a href="/detect">Detect Fraud</a>
+    <a href="/models">Models</a>
+    <a href="/about">About</a>
+  </div>
+</nav>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer>
+  Academic Credit Card Fraud Detection Project • Machine Learning Demo
+</footer>
+</body>
+</html>

@@ -1,0 +1,108 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #011a41;
+  color:#eaf2ff;
+  
+}
+.nav {
+  height: 74px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7%;
+  border-bottom: 1px solid #1c3048;
+  background: rgba(7,17,31,.95);
+}
+.brand { font-size: 21px; font-weight: 800; }
+.brand span { color: #58d6ff; }
+.navlinks { display: flex; gap: 28px; }
+.navlinks a { color: #9fb2c9; text-decoration: none; }
+.navlinks a:hover { color: white; }
+main { max-width: 1180px; margin: auto; padding: 55px 25px 80px; }
+.hero {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 55px;
+  border: 1px solid #1c3048;
+  border-radius: 28px;
+  background: linear-gradient(to right,black,rgb(0, 0, 66))
+}
+.eyebrow { color: #58d6ff; letter-spacing: 2px; font-size: 12px; font-weight: 800; }
+h1 { font-size: clamp(42px, 6vw, 72px); line-height: 1.02; margin: 12px 0 20px; }
+h1 span { color: #58d6ff; }
+.lead { color: #a9bbd0; max-width: 600px; font-size: 18px; line-height: 1.7; }
+.shield { font-size: 150px; filter: drop-shadow(0 0 40px #176b8a); }
+.btn {
+  display: inline-block;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 22px;
+  background: #58d6ff;
+  color: #03111c;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover{
+  background:#29425e;
+}
+.cards, .model-grid, .info-grid { display: grid; gap: 18px; margin-top: 25px; }
+.cards { grid-template-columns: repeat(3,1fr); }
+.card, .model-card, .table-card, .info-card, .about-card, .form-card, .result {
+  border: 1px solid #1c3048;
+  background: #0b1828;
+  border-radius: 18px;
+  padding: 25px;
+}
+.label { color: #7189a5; font-size: 12px; letter-spacing: 1.5px; }
+.number { font-size: 35px; font-weight: 800; margin: 8px 0; }
+.card p, .model-card p, .info-card p, .about-card p { color: #91a5bd; line-height: 1.6; }
+.section { margin-top: 70px; }
+.section-head { display:flex; justify-content:space-between; align-items:end; }
+.section-head a { color:#58d6ff; text-decoration:none; }
+.section-head a:hover{color:blueviolet;}
+h2 { font-size: 32px; }
+.model-grid { grid-template-columns: repeat(4,1fr); }
+.metric-row { display:flex; justify-content:space-between; padding: 11px 0; border-bottom:1px solid #1c3048; color:#91a5bd; }
+.metric-row strong { color:#fff; }
+.page-title { margin-bottom: 30px; }
+.page-title h1 { font-size: 52px; }
+.form-card { margin-top: 20px; }
+.form-top { margin-bottom: 25px; }
+label { display:flex; flex-direction:column; gap:7px; color:#a9bbd0; font-size:13px; }
+select, input {
+  width:100%; padding:11px 12px; border-radius:9px; border:1px solid #29425e;
+  background:#07111f; color:#fff; outline:none;
+}
+.input-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:13px; }
+.hint { color:#7189a5; font-size:13px; }
+.result { margin-top:20px; display:flex; gap:22px; align-items:center; }
+.result.hidden { display:none; }
+.result.safe { border-color:#1d9b71; background:#09251e; }
+.result.fraud { border-color:#d34e5c; background:#2b1118; }
+.result.error { border-color:#d38b4e; }
+.result-icon { font-size:55px; }
+.table-card { overflow:auto; }
+table { width:100%; border-collapse:collapse; }
+th, td { padding:16px; border-bottom:1px solid #1c3048; text-align:left; }
+th { color:#58d6ff; }
+td { color:#c6d3e1; }
+.info-grid { grid-template-columns:repeat(2,1fr); margin-top:25px; }
+.pipeline { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:30px 0; }
+.pipeline div { padding:18px; border:1px solid #29425e; border-radius:12px; background:#081421; text-align:center; }
+.pipeline span { color:#58d6ff; }
+.notice { padding:15px; border-left:3px solid #58d6ff; background:#071421; }
+footer { text-align:center; color:#657b95; padding:30px; border-top:1px solid #1c3048; }
+@media(max-width:850px) {
+  .nav { padding:0 4%; }
+  .navlinks { gap:10px; font-size:13px; }
+  .hero { padding:30px; }
+  .shield { display:none; }
+  .cards, .model-grid, .info-grid { grid-template-columns:1fr; }
+  .input-grid { grid-template-columns:repeat(2,1fr); }
+}

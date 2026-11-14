@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">MACHINE LEARNING • FRAUD ANALYTICS</p>
+    <h1>Credit Card Fraud<br><span>Detection System</span></h1>
+    <p class="lead">Analyze a transaction with four machine-learning algorithms and identify suspicious activity.</p>
+    <a class="btn" href="/detect">Analyze a Transaction →</a>
+  </div>
+  <div class="shield">🛡️</div>
+</section>
+
+<section class="cards">
+  <div class="card"><div class="label">ML MODELS</div><div class="number">4</div><p>Decision Tree, KNN, Logistic Regression & SVM</p></div>
+  <div class="card"><div class="label">DATASET</div><div class="number">284K+</div><p>Transactions in the standard credit-card dataset</p></div>
+  <div class="card"><div class="label">TARGET</div><div class="number">0 / 1</div><p>Legitimate or fraudulent transaction</p></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">MODEL PERFORMANCE</p>
+      <h2>Compare the algorithms</h2>
+    </div>
+    <a href="/models">View details →</a>
+  </div>
+  <div class="model-grid">
+  {% for key, name in models.items() %}
+    <div class="model-card">
+      <h3>{{ name }}</h3>
+      {% if metrics.get(key) %}
+        <div class="metric-row"><span>Accuracy</span><strong>{{ "%.2f"|format(metrics[key]["accuracy"]*100) }}%</strong></div>
+        <div class="metric-row"><span>Precision</span><strong>{{ "%.2f"|format(metrics[key]["precision"]*100) }}%</strong></div>
+        <div class="metric-row"><span>Recall</span><strong>{{ "%.2f"|format(metrics[key]["recall"]*100) }}%</strong></div>
+        <div class="metric-row"><span>F1 Score</span><strong>{{ "%.2f"|format(metrics[key]["f1"]*100) }}%</strong></div>
+      {% else %}
+        <p>Train the models to display metrics.</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+  </div>
+</section>
+{% endblock %}
